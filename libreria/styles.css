@@ -1,0 +1,30 @@
+body {
+    padding: 0 10px;
+    background-color: #f1f1f1;
+}
+form {
+  text-align: center;
+  border-radius: 10px;
+  padding: 16px;
+  width: 50vw !important;
+  min-width: 300px;
+  max-width: 700px !important;
+  margin: auto;
+  background-color: white;
+}
+.form-control {
+  text-align: center;
+  margin: auto;
+  background-color: inherit !important;
+  border: solid 1px rgb(160, 160, 160);
+  max-width: 90%;
+}
+.form-label {
+    font-weight: 600;
+    font-size: large;
+}
+nav {
+    margin: auto;
+    margin-top: 16px;
+    text-align: center;
+}
