@@ -42,7 +42,7 @@ $(document).ready(function () {
     console.log("Libro: ", libro);
 
     $.ajax({
-      url: "http://localhost:3000/book",
+      url: "http://localhost:3000/books",
       method: "POST",
       contentType: "application/json",
       data: JSON.stringify(libro),

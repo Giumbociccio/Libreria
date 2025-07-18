@@ -16,7 +16,7 @@ app.get("/", function (req, res) {
 });
 
 
-app.post('/book', (req, res) => {
+app.post('/books', (req, res) => {
     const book = req.body;
 
     fs.readFile(
@@ -57,6 +57,10 @@ app.get('/books', (req, res) => {
             res.json(books)
         }
     )
+})
+
+app.get('/books/:book', (req, res) => {
+    //todo
 })
 
 
