@@ -1,0 +1,23 @@
+LATO CLIENT
+
+LATO SERVER
+implementare i filtri per la ricerca
+es.
+
+app.get("/libri", () => {
+
+const { autore, titolo } = req.query;
+
+let risultati = libri;
+
+if (autore) {
+  risultati = risultati.filter(libro => libro.autore.toLowerCase() === autore.toLowerCase());
+}
+if (titolo) {
+  risultati = risultati.filter(libro => libro.titolo.toLowerCase().includes(titolo.toLowerCase()));
+}
+--------------------------------
+// oppure si può filtrare per autore (restituisce solo i titoli) (meglio di no)
+ libri
+  .filter(libro => libro.autore === 'Giovanni')   // Filtra i libri di Giovanni
+  .map(libro => libro.titolo);
