@@ -45,6 +45,7 @@ app.post('/books', (req, res) => {
 });
 
 app.get('/books', (req, res) => {
+    const { isbn, publisher, author, title, minPages = 0, maxPages, place } = req.query;
     fs.readFile(
         "./database.json",
         { encoding: "utf-8" },
@@ -54,14 +55,29 @@ app.get('/books', (req, res) => {
                 return;
             }
             let books = JSON.parse(data)
+            if (isbn) {
+             books.filter(book => book.isbn === isbn);
+            }
+            if (publisher) {
+             books.filter(book => book.publisher.toLowerCase().contains(publisher.toLowerCase());
+            }
+            if (author) {
+             books.filter(book => book.author.toLowerCase().contains(author.toLowerCase()));
+            }
+            if (title) {
+             books.filter(book => book.title.toLowerCase().contains(title.toLowerCase()));
+            }
+            if (maxPages) {
+             books.filter(book => book.pages >= minPages && book.pages <= maxPages);
+            }
+            if (place) {
+             books.filter(book => book.place === place);
+            }
             res.json(books)
         }
     )
 })
 
-app.get('/books/:book', (req, res) => {
-    //todo
-})
 
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
