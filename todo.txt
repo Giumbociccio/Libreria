@@ -1,7 +1,14 @@
 LATO CLIENT
 
+aggiungere in catalogo.html
+- barra di ricerca --> cerca libro (filtra per)
+	- isbn, publisher, author, title, minPages = 0, maxPages, place
+- form --> text, text, text, text, number, number, select(options)
+
 LATO SERVER
-implementare i filtri per la ricerca
+
+---------------------------------
+implementare i filtri per la ricerca (fatto)
 es.
 
 app.get("/libri", () => {
