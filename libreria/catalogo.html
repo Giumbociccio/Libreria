@@ -16,8 +16,17 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <h1>Ecco il catalogo completo</h1>
-    <div id="books"></div>
+   <h1>Ecco il catalogo completo</h1>
+   <form id="parametri">
+    <input type="text" class="search" name="isbn" placeholder="Inserisci isbn" />
+    <input type="text" class="search" name="author" placeholder="Autore" />
+    <input type="text" class="search" name="year" placeholder="Anno di pubblicazione" />
+    <input type="number" class="search" name="pages" placeholder="Numero di pagine" />
+    <select class="search" name="place">
+     <option></option>
+    </select>
+   </form>
+  <div id="books"></div>
     <a href="index.html"><input type="button" class="btn btn-primary" value="Torna alla Home"></a>
     <a href="aggiungi.html"><input type="button" class="btn btn-primary" value="Aggiungi un libro alla collezione"></a>
   </body>
