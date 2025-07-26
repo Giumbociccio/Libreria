@@ -45,7 +45,7 @@ app.post('/books', (req, res) => {
 });
 
 app.get('/books', (req, res) => {
-    const { isbn, publisher, author, title, minPages = 0, maxPages, place } = req.query;
+    const { isbn, publisher, author, title, genre, minPages = 0, maxPages, place } = req.query;
     fs.readFile(
         "./database.json",
         { encoding: "utf-8" },
@@ -66,6 +66,9 @@ app.get('/books', (req, res) => {
             }
             if (title) {
              books.filter(book => book.title.toLowerCase().contains(title.toLowerCase()));
+            }
+            if (genre) {
+             books.filter(book => book.genre.toLowerCase().contains(genre.toLowerCase()));
             }
             if (maxPages) {
              books.filter(book => book.pages >= minPages && book.pages <= maxPages);
