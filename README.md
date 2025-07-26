@@ -3,5 +3,6 @@ Filtri di ricerca: api/books?
 - publisher,
 - author,
 - title,
+- genre,
 - minPages (default = 0), maxPages,
 - place
