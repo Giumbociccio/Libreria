@@ -59,7 +59,7 @@ app.get('/books', (req, res) => {
              books.filter(book => book.isbn === isbn);
             }
             if (publisher) {
-             books.filter(book => book.publisher.toLowerCase().contains(publisher.toLowerCase());
+             books.filter(book => book.publisher.toLowerCase().contains(publisher.toLowerCase()));
             }
             if (author) {
              books.filter(book => book.author.toLowerCase().contains(author.toLowerCase()));
