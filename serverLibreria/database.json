@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "isbn": "1",
+    "title": "titolo di prova",
+    "author": "1234",
+    "publisher": "1234",
+    "genre": "boh",
+    "pages": "32",
+    "place": "Camera ragazzi"
+  }
+]

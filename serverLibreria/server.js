@@ -28,16 +28,16 @@ app.post('/books', (req, res) => {
                 return;
             }
             let books = JSON.parse(data)
-            
+
             console.log(book);
             books.push(book);
-            
+
             fs.writeFile("./database.json", JSON.stringify(books, null, 2), function (err) {
                 if (err) {
                     res.status(500).send("Errore nel salvataggio del file");
                     return;
                 }
-                
+
                 res.send("Libro aggiunto correttamente");
             });
         }
@@ -56,25 +56,27 @@ app.get('/books', (req, res) => {
             }
             let books = JSON.parse(data)
             if (isbn) {
-             books.filter(book => book.isbn === isbn);
+                books = books.filter(book => book.isbn === isbn);
             }
             if (publisher) {
-             books.filter(book => book.publisher.toLowerCase().contains(publisher.toLowerCase()));
+                books = books.filter(book => book.publisher.toLowerCase().includes(publisher.toLowerCase()));
             }
             if (author) {
-             books.filter(book => book.author.toLowerCase().contains(author.toLowerCase()));
+                books = books.filter(book => book.author.toLowerCase().includes(author.toLowerCase()));
             }
             if (title) {
-             books.filter(book => book.title.toLowerCase().contains(title.toLowerCase()));
+                books = books.filter(book => book.title.toLowerCase().includes(title.toLowerCase()));
             }
             if (genre) {
-             books.filter(book => book.genre.toLowerCase().contains(genre.toLowerCase()));
+                books = books.filter(book => book.genre.toLowerCase().includes(genre.toLowerCase()));
             }
             if (maxPages) {
-             books.filter(book => book.pages >= minPages && book.pages <= maxPages);
+                let min = Number(minPages);
+                let max = Number(maxPages);
+                books = books.filter(book => Number(book.pages) >= min && Number(book.pages) <= max);
             }
             if (place) {
-             books.filter(book => book.place === place);
+                books = books.filter(book => book.place === place);
             }
             res.json(books)
         }
