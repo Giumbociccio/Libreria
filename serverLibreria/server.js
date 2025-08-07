@@ -3,13 +3,13 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// body-parser è integrato in express da v4.16 in poi
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/", function (req, res) {
     res.send("Server ONLINE");
